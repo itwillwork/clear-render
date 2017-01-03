@@ -1,0 +1,33 @@
+{
+  "name": "clear-render",
+  "description": "Developer tool for debugging render react components",
+  "version": "0.1.0",
+  "homepage": "https://github.com/itwillwork/clear-render",
+  "license": "MIT",
+  "author": "itwillwork <nurullin_edgar@mail.ru>",
+  "keywords": [
+    "react",
+    "render",
+    "devtools",
+    "dev",
+    "tool"
+  ],
+  "peerDependencies": {
+    "react": ">=0.12.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.34",
+    "babel-core": "^5.8.38",
+    "react": "^0.14.3",
+    "react-addons-test-utils": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "main": "build/ClearRender.js",
+  "scripts": {
+    "build": "babel ClearRender.js -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itwillwork/clear-render.git"
+  }
+}
