@@ -1,7 +1,7 @@
 {
   "name": "clear-render",
   "description": "Developer tool for debugging render react components",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "homepage": "https://github.com/itwillwork/clear-render",
   "license": "MIT",
   "author": "itwillwork <nurullin_edgar@mail.ru>",
