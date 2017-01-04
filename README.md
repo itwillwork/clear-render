@@ -16,7 +16,23 @@ You can set globally, to be used in all their projects without having to install
 
 
 ## Usage 
-To use, you need to inherit from the component for which the dependence clear-render you want to follow.
+The first option is the use, wrap the component for which you want to watch. And yet!
+```javascript
+class SimpleComponent {
+  constructor(props, ctx) {
+    super(props, ctx);
+  }
+  render() {
+    return (
+      <div> Simple text. </div>
+    )
+  }
+}
+
+SimpleComponent = require('clear-render')(SimpleComponent)
+
+```
+The second option is the use, you need to inherit from the component for which the dependence clear-render you want to follow.
 ```javascript
 class CustomBlock extends require('clear-render')() {
   constructor(props, ctx) {
