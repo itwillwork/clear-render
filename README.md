@@ -105,7 +105,9 @@ class CustomBlock extends require('clear-render')(Control, 'Input2') {
   constructor(props, ctx) {
   // your code of component ...
 ```
+
 ## Contributing
 Got ideas on how to make this better? Open an issue!
+
 ## License
 MIT
