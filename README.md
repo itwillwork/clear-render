@@ -1,5 +1,6 @@
 # clear-render
 Developer tool for debugging render react components.
+
 ## Motivation
 Often, you need to understand when there is a render, and why.
 
