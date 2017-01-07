@@ -1,18 +1,18 @@
 {
   "name": "clear-render",
   "description": "Developer tool for debugging render react components",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "homepage": "https://github.com/itwillwork/clear-render",
   "license": "MIT",
   "author": "itwillwork <nurullin_edgar@mail.ru>",
   "keywords": [
-    "react",
-    "render",
-    "devtools",
+    "perfomance",
+    "highload",
     "dev",
     "tool",
-    "perfomance",
-    "highload"
+    "devtools",
+    "react",
+    "render"
   ],
   "peerDependencies": {
     "react": ">=0.12.0"
