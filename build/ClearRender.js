@@ -1,5 +1,5 @@
 const React = require('react');
-const shallowCompare = require('shallowCompare');
+const shallowCompare = require('react-addons-shallow-compare');
 
 const clearRender = {
   componentDidMount: function () {
