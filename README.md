@@ -1,10 +1,10 @@
 # clear-render
-Developer tool for debugging render react components.
+Developer tool for debugging render React components.
 
 ## Motivation
 Often, you need to understand when there is a render, and why.
 
-![Demonstration](https://monosnap.com/file/z0byK7zYNsZ82VjN9n9Q9e5jw1M2Se.png)
+![Demonstration](https://monosnap.com/file/6oqE3SvayAv4T4NF2jtZIRnfAKq136.png)
 
 ## Install
 
@@ -17,15 +17,21 @@ You can set globally, to be used in all their projects without having to install
 ## Usage 
 Wrap the component for which you want to watch. And yet!
 ```javascript
-class SimpleComponent {
-  constructor(props, ctx) {
-    super(props, ctx);
-  }
-  render() {
-    return (
-      <div> Simple text. </div>
-    )
-  }
+import clearRender from 'clear-render';
+
+@clearRender
+class SimpleComponent extends React.Component {
+
+    ...
+
+}
+```
+or
+```javascript
+class SimpleComponent extends React.Component {
+
+    ...
+
 }
 
 SimpleComponent = require('clear-render')(SimpleComponent)

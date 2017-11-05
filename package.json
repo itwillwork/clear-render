@@ -14,18 +14,13 @@
     "react",
     "render"
   ],
-  "peerDependencies": {
-    "react": ">=0.12.0"
-  },
   "devDependencies": {
-    "babel": "^5.8.34",
-    "babel-core": "^5.8.38",
-    "react": "^0.14.3",
-    "react-addons-shallow-compare": "^0.14.3"
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
   },
-  "main": "build/ClearRender.js",
+  "main": "build/index.js",
   "scripts": {
-    "build": "babel ClearRender.js -d build"
+    "build": "babel src/index.js --presets es2015 --out-file build/index.js"
   },
   "repository": {
     "type": "git",
