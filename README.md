@@ -45,7 +45,7 @@ const SimpleComponent = clearRender(OriginalSimpleComponent);
 ## Usage for CodePen and JSBin as UMD module
 in html area
 ```javascript
-<script src="https://unpkg.com/clear-render@0.1.14/build/umd/index.js"></script>
+<script src="https://unpkg.com/clear-render@latest/build/umd/index.js"></script>
 ```
 in js area use clearRender from global scope
 ```javascript
