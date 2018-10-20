@@ -47,7 +47,7 @@ in html area
 ```javascript
 <script src="https://unpkg.com/clear-render@latest/build/umd/index.js"></script>
 ```
-in js area use clearRender from global scope
+in js area use ```clearRender``` from global scope
 ```javascript
 @clearRender
 class SimpleComponent extends React.Component {
