@@ -1,12 +1,14 @@
 # clear-render
 
-To answer the question. **Why did the rendering happen?**
+To answer the question. **Why did the rendering happen?** :eyes:
 
-✅ used directly for one component, therefore it works very fast
+:heavy_check_mark: used directly for one component, therefore it works very fast
 
-✅ for all versions of React from ^0.13.0 to ^16.0.0
+:heavy_check_mark: for all versions of React from ^0.13.0 to ^16.0.0
 
-✅ zero dependencies
+:heavy_check_mark: zero dependencies
+
+
 
 ![Example](https://monosnap.com/file/6oqE3SvayAv4T4NF2jtZIRnfAKq136.png)
 
@@ -19,7 +21,7 @@ npm install clear-render --save-dev
 You can set globally, to be used in all their projects without having to install each.
   
 ## Usage 
-Wrap the component for which you want to watch. And yet!
+Wrap the component for which you want to watch. And yet! :checkered_flag:
 ```javascript
 import clearRender from 'clear-render';
 
