@@ -8,8 +8,7 @@ To answer the question. **Why did the rendering happen?** :eyes:
 
 :heavy_plus_sign: zero dependencies
 
-
-![Example](https://monosnap.com/file/6oqE3SvayAv4T4NF2jtZIRnfAKq136.png)
+<img width="564" alt="example" src="https://user-images.githubusercontent.com/15855766/47255109-5e687900-d474-11e8-86b1-38d732483959.png">
 
 ## Install
 
