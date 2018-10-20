@@ -2,11 +2,11 @@
 
 To answer the question. **Why did the rendering happen?** :eyes:
 
-:heavy_check_mark: used directly for one component, therefore it works very fast
+:heavy_plus_sign: used directly for one component, therefore it works very fast
 
-:heavy_check_mark: for all versions of React from ^0.13.0 to ^16.0.0
+:heavy_plus_sign: for all versions of React from ^0.13.0 to ^16.0.0 
 
-:heavy_check_mark: zero dependencies
+:heavy_plus_sign: zero dependencies
 
 
 
