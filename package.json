@@ -1,6 +1,6 @@
 {
   "name": "clear-render",
-  "description": "Developer tool for debugging render react components",
+  "description": "Why did the rendering happen? Developer tool for react.",
   "version": "0.1.17",
   "homepage": "https://github.com/itwillwork/clear-render",
   "license": "MIT",
