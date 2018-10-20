@@ -9,7 +9,6 @@ To answer the question. **Why did the rendering happen?** :eyes:
 :heavy_plus_sign: zero dependencies
 
 
-
 ![Example](https://monosnap.com/file/6oqE3SvayAv4T4NF2jtZIRnfAKq136.png)
 
 ## Install
