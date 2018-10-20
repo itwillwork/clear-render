@@ -1,10 +1,14 @@
 # clear-render
-Developer tool for debugging render React components.
 
-## Motivation
-Often, you need to understand when there is a render, and why.
+To answer the question. **Why did the rendering happen?**
 
-![Demonstration](https://monosnap.com/file/6oqE3SvayAv4T4NF2jtZIRnfAKq136.png)
+✅ used directly for one component, therefore it works very fast
+
+✅ for all versions of React from ^0.13.0 to ^16.0.0
+
+✅ zero dependencies
+
+![Example](https://monosnap.com/file/6oqE3SvayAv4T4NF2jtZIRnfAKq136.png)
 
 ## Install
 
@@ -28,16 +32,31 @@ class SimpleComponent extends React.Component {
 ```
 or
 ```javascript
+import clearRender from 'clear-render';
+import OriginalSimpleComponent from './SimpleComponent';
+
+const SimpleComponent = clearRender(OriginalSimpleComponent);
+
+...
+
+<SimpleComponent {...props} />
+```
+
+## Usage for CodePen and JSBin as UMD module
+in html area
+```javascript
+<script src="https://unpkg.com/clear-render@0.1.14/build/umd/index.js"></script>
+```
+in js area use clearRender from global scope
+```javascript
+@clearRender
 class SimpleComponent extends React.Component {
 
     ...
 
 }
-
-SimpleComponent = require('clear-render')(SimpleComponent)
-
 ```
-  
+
 ## Contributing
 Got ideas on how to make this better? Open an issue!
 
