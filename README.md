@@ -56,6 +56,8 @@ class SimpleComponent extends React.Component {
 
 }
 ```
+## Resources
+:bomb: [Understand React render better](https://medium.com/@itwillwork/understand-react-better-bfcef33ed31c)
 
 ## Contributing
 Got ideas on how to make this better? Open an issue!
