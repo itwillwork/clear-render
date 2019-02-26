@@ -15,13 +15,13 @@
     "render"
   ],
   "devDependencies": {
-    "@babel/core": "*",
-    "@babel/preset-env": "*",
-    "@babel/preset-react": "*",
-    "babel-jest": "*",
-    "enzyme": "*",
-    "enzyme-adapter-react-16": "*",
-    "jest": "*",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.1.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "jest": "^24.1.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
   },
