@@ -15,14 +15,27 @@
     "render"
   ],
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-es2015-modules-umd": "6.24.1",
-    "babel-preset-es2015": "^6.24.1"
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
+    "babel-jest": "*",
+    "enzyme": "*",
+    "enzyme-adapter-react-16": "*",
+    "jest": "*",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   },
   "main": "build/index.js",
   "scripts": {
     "build": "babel src/index.js --no-babelrc --presets es2015 --out-file build/index.js",
-    "build-umd": "babel src/index.js --out-file build/umd/index.js"
+    "build-umd": "babel src/index.js --out-file build/umd/index.js",
+    "test": "jest",
+    "format": "prettier --single-quote --trailing-comma es5 --write \"src/**/*.js\""
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/__tests__/components/"
+    ]
   },
   "repository": {
     "type": "git",
