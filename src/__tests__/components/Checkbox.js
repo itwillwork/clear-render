@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class SimpleComponent extends React.Component {
+export default class Checkbox extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isChecked: false };
@@ -13,15 +13,18 @@ export default class SimpleComponent extends React.Component {
   }
 
   render() {
+    const { label } = this.props;
+
     return (
-      <label>
+      <div>
         <input
           type="checkbox"
           checked={this.state.isChecked}
           onChange={this.onChange}
         />
-        {this.state.isChecked ? this.props.labelOn : this.props.labelOff}
-      </label>
+        <label>{this.state.isChecked ? 'On' : 'Off'}</label>
+        <span>{label}</span>
+      </div>
     );
   }
 }

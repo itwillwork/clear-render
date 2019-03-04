@@ -22,8 +22,8 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
     "jest": "^24.1.0",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "main": "build/index.js",
   "scripts": {
