@@ -1,12 +1,13 @@
 # clear-render
 
 To answer the question. **Why did the rendering happen?** :eyes:
+ 
+:heavy_plus_sign: used directly for one component, therefore it works very fast; 
+> [why-did-you-update](https://github.com/maicki/why-did-you-update) is a function that monkey patches React, therefore very slow works.
 
-:heavy_plus_sign: used directly for one component, therefore it works very fast
+:heavy_plus_sign: for all versions of React from ^0.13.0 to ^16.0.0;
 
-:heavy_plus_sign: for all versions of React from ^0.13.0 to ^16.0.0 
-
-:heavy_plus_sign: zero dependencies
+:heavy_plus_sign: zero dependencies.
 
 <img width="564" alt="example" src="https://user-images.githubusercontent.com/15855766/47255109-5e687900-d474-11e8-86b1-38d732483959.png">
 
