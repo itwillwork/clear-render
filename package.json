@@ -1,7 +1,7 @@
 {
   "name": "clear-render",
   "description": "Why did the rendering happen? Developer tool for react.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "https://github.com/itwillwork/clear-render",
   "license": "MIT",
   "author": "itwillwork <nurullin_edgar@mail.ru>",
