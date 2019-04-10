@@ -3,10 +3,15 @@
 To answer the question. **Why did the rendering happen?** :eyes:
  
 :heavy_plus_sign: support for React Hooks;
+
 :heavy_plus_sign: used directly for one component, therefore it works very fast for large project;
+
 :heavy_plus_sign: for all versions of React from ^0.13.0 to ^16.0.0;
+
 :heavy_plus_sign: easy usage!
+
 :heavy_plus_sign: zero dependencies.
+
 
 > [why-did-you-update](https://github.com/maicki/why-did-you-update) is a function that monkey patches React, therefore very slow works.
 
