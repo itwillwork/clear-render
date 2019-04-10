@@ -1,5 +1,8 @@
 import patch from './patch';
 
+import Logger from './Logger';
+import Comparator from './Comparator';
+
 export default (...args) => {
   if (args.length > 2) {
     console.error('[clear-render] Error: Too many arguments');
@@ -14,19 +17,19 @@ export default (...args) => {
   let ComponentClass = null;
   let forcedDisplayedName = null;
 
-  args.forEach(arg => {
-    const type = typeof arg;
+  args.forEach(argument => {
+    const type = typeof argument;
 
     switch (type) {
       case 'symbol':
       case 'string':
         {
-          forcedDisplayedName = arg;
+          forcedDisplayedName = argument;
         }
         break;
       default:
         {
-          ComponentClass = arg;
+          ComponentClass = argument;
         }
         break;
     }
@@ -39,5 +42,8 @@ export default (...args) => {
 
   const name = forcedDisplayedName || ComponentClass.name;
 
-  return patch(ComponentClass, name, console);
+  const logger = new Logger(name, console);
+  const comparator = new Comparator(logger);
+
+  return patch(ComponentClass, comparator);
 };

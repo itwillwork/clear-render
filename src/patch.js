@@ -1,11 +1,7 @@
-import Logger from './logger';
-
-export default (ComponentClass, name, log) => {
-  const logger = new Logger(name, log);
-
-  const originalRender = ComponentClass.prototype.render;
-  ComponentClass.prototype.render = function() {
-    logger.init();
+const patchClass = (ClassComponent, comparator) => {
+  const originalRender = ClassComponent.prototype.render;
+  ClassComponent.prototype.render = function() {
+    comparator.processChanges(this.props, this.state);
 
     if (originalRender) {
       return originalRender.call(this);
@@ -14,19 +10,25 @@ export default (ComponentClass, name, log) => {
     return null;
   };
 
-  const originalСomponentDidUpdate =
-    ComponentClass.prototype.componentDidUpdate;
-  ComponentClass.prototype.componentDidUpdate = function(...args) {
-    const [prevProps, prevState] = args;
-    const nextProps = this.props;
-    const nextState = this.state;
+  return ClassComponent;
+};
 
-    logger.processChanges([prevState, nextState], [prevProps, nextProps]);
+const patchFunction = (FunctionComponent, comparator) => {
+  const FunctionComponentWrap = (...args) => {
+    comparator.processChanges(args[0], {});
 
-    if (originalСomponentDidUpdate) {
-      return originalСomponentDidUpdate.call(this, ...args);
-    }
+    return FunctionComponent(...args);
   };
 
-  return ComponentClass;
+  return FunctionComponentWrap;
+};
+
+export default (Component, comparator) => {
+  const isClassComponent = !!(Component.prototype.render && Component.prototype.isReactComponent);
+
+  if (isClassComponent) {
+    return patchClass(Component, comparator);
+  }
+
+  return patchFunction(Component, comparator);  
 };

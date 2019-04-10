@@ -1,28 +1,10 @@
 class Logger {
   constructor(componentName, log) {
     this._componentName = componentName;
-    this._propsChanges = [];
-    this._stateChanges = [];
-    this._renderCount = 0;
-
     this._log = log;
   }
 
-  init() {
-    if (this._isFirstRender) {
-      this._printInit();
-    }
-
-    this._incrementRenderCount();
-  }
-
-  processChanges(stateChange, propsChange) {
-    this._shallowCompareState(...stateChange);
-    this._shallowCompareProps(...propsChange);
-    this._printComparisonsResults();
-  }
-
-  _printInit() {
+  printInit() {
     this._log.log(
       '%c[clear-render] init for',
       'color: #848d95;',
@@ -57,14 +39,19 @@ class Logger {
     }
   }
 
-  _printComparisonsResults() {
+  printComparisonsResults(propsChanges, stateChanges) {
     this._log.group(
       `%c[clear-render] re-render #${this._renderCount}`,
       'color: #848d95;',
       this._componentName
     );
-    this._printComparisonResult('props', this._propsChanges);
-    this._printComparisonResult('state', this._stateChanges);
+    this._printComparisonResult('props', propsChanges);
+    this._printComparisonResult('state', stateChanges);
+
+    if (propsChanges.length === 0 && stateChanges.length === 0) {
+      this._log.log('maybe it\'s the hooks effect');
+    }
+
     this._log.groupEnd();
   }
 
