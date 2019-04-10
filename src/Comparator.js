@@ -30,7 +30,7 @@ class Comparator {
     }
 
     let difference = [];
-    
+
     Object.keys(nextObj).forEach(key => {
       if (nextObj[key] !== oldObj[key]) {
         const type = typeof nextObj[key];
@@ -43,7 +43,7 @@ class Comparator {
         });
       }
     });
-    
+
     return difference;
   }
 }

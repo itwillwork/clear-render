@@ -23,7 +23,9 @@ class Checkbox extends React.Component {
           checked={this.state.isChecked}
           onChange={this.onChange}
         />
-        <label data-testid="state-isChecked">{this.state.isChecked ? '1' : '0'}</label>
+        <label data-testid="state-isChecked">
+          {this.state.isChecked ? '1' : '0'}
+        </label>
         <span data-testid="props-title">{title}</span>
         <span>{description}</span>
       </div>

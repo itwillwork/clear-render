@@ -24,11 +24,13 @@ const patchFunction = (FunctionComponent, comparator) => {
 };
 
 export default (Component, comparator) => {
-  const isClassComponent = !!(Component.prototype.render && Component.prototype.isReactComponent);
+  const isClassComponent = !!(
+    Component.prototype.render && Component.prototype.isReactComponent
+  );
 
   if (isClassComponent) {
     return patchClass(Component, comparator);
   }
 
-  return patchFunction(Component, comparator);  
+  return patchFunction(Component, comparator);
 };

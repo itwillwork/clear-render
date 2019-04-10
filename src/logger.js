@@ -49,7 +49,7 @@ class Logger {
     this._printComparisonResult('state', stateChanges);
 
     if (propsChanges.length === 0 && stateChanges.length === 0) {
-      this._log.log('maybe it\'s the hooks effect');
+      this._log.log("maybe it's the hooks effect");
     }
 
     this._log.groupEnd();
