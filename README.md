@@ -8,7 +8,7 @@ To answer the question. **Why did the rendering happen?** :eyes:
 
 :heavy_plus_sign: for all versions of React from ^0.13.0 to ^16.0.0;
 
-:heavy_plus_sign: easy usage!
+:heavy_plus_sign: easy usage! wrap component and done.
 
 :heavy_plus_sign: zero dependencies.
 
@@ -22,7 +22,7 @@ Advantage over analogues: [welldone-software/why-did-you-render](https://github.
 You can test the library >> HERE << (notice the console).
 
 ## Usage 
-Wrap the component for which you want to watch. And yet! :checkered_flag:
+Wrap the component for which you want to watch. :checkered_flag:
 
 ```javascript
 import clearRender from 'clear-render';
