@@ -39,9 +39,9 @@ class Logger {
     }
   }
 
-  printComparisonsResults(propsChanges, stateChanges) {
+  printComparisonsResults(renderCount, propsChanges, stateChanges) {
     this._log.group(
-      `%c[clear-render] re-render #${this._renderCount}`,
+      `%c[clear-render] re-render #${renderCount}`,
       'color: #848d95;',
       this._componentName
     );
@@ -64,40 +64,6 @@ class Logger {
     this._log.groupEnd();
   }
 
-  _differenceBetweenObjects(oldObj = {}, nextObj = {}) {
-    if (!nextObj || !oldObj) {
-      return [];
-    }
-    let difference = [];
-    Object.keys(nextObj).forEach(key => {
-      if (nextObj[key] !== oldObj[key]) {
-        const type = typeof nextObj[key];
-        difference.push({
-          key,
-          type,
-          oldValue: oldObj[key],
-          nextValue: nextObj[key],
-        });
-      }
-    });
-    return difference;
-  }
-
-  _shallowCompareProps(prevProps, nextProps) {
-    this._propsChanges = this._differenceBetweenObjects(prevProps, nextProps);
-  }
-
-  _shallowCompareState(prevState, nextState) {
-    this._stateChanges = this._differenceBetweenObjects(prevState, nextState);
-  }
-
-  get _isFirstRender() {
-    return !this._renderCount;
-  }
-
-  _incrementRenderCount() {
-    this._renderCount++;
-  }
 }
 
 export default Logger;

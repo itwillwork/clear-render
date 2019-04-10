@@ -16,7 +16,7 @@ class Comparator {
       const propsChanges = this._shallowCompare(this._prevProps, nextProps);
       const stateChanges = this._shallowCompare(this._prevState, nextState);
 
-      this._logger.printComparisonsResults(propsChanges, stateChanges);
+      this._logger.printComparisonsResults(this._renderCount, propsChanges, stateChanges);
     }
 
     this._renderCount += 1;
