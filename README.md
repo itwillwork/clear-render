@@ -12,7 +12,6 @@ To answer the question. **Why did the rendering happen?** :eyes:
 
 :heavy_plus_sign: zero dependencies.
 
-
 ### Advantage over analogues
 
 Advantage over analogues: [welldone-software/why-did-you-render](https://github.com/welldone-software/why-did-you-render), [maicki/why-did-you-update](https://github.com/maicki/why-did-you-update) and [garbles/why-did-you-update](https://github.com/garbles/why-did-you-update), is a function that monkey patches React (it is works very very slow for large project) and not support React hooks.
@@ -59,7 +58,6 @@ class SimpleComponent extends React.Component {
 
 }
 ```
-
 ### Install
 
 ```
