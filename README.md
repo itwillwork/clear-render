@@ -28,9 +28,7 @@ Wrap the component for which you want to watch. :checkered_flag:
 import clearRender from 'clear-render';
 
 class SimpleComponent extends React.Component {
-
     ...
-
 }
 
 export default clearRender(SimpleComponent);
@@ -39,12 +37,11 @@ or
 ```javascript
 import clearRender from 'clear-render';
 
-@clearRender
-class SimpleComponent extends React.Component {
-
+const SimpleComponent = (props) => {
     ...
-
 }
+
+export default clearRender(SimpleComponent);
 ```
 
 ## Usage for CodePen and JSBin as UMD module
@@ -56,9 +53,7 @@ in js area use ```clearRender``` from global scope
 ```javascript
 @clearRender
 class SimpleComponent extends React.Component {
-
     ...
-
 }
 ```
 ### Install
