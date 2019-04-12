@@ -43,6 +43,15 @@ const SimpleComponent = (props) => {
 
 export default clearRender(SimpleComponent);
 ```
+for lists, an additional component must be passed to props **clearRenderId**
+```javascript
+lists.map((item, idx) => (
+ <SimpleComponent
+  key={idx}
+  clearRenderId={idx}
+ />
+))
+```
 
 ## Usage for CodePen and JSBin as UMD module
 in html area
