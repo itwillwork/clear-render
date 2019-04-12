@@ -16,13 +16,12 @@ class Logger {
 
   printInit(id) {
     const componentLabel = this._getComponentLabel(id);
-
-    this._log.log(
-      '%c[clear-render] init for',
-      'color: #848d95;',
-      componentLabel
-    );
+    
     this._log.log('%c[clear-render] render', 'color: #848d95;', componentLabel);
+  }
+
+  _formatValue(value) {
+    return JSON.stringify(value, null, 4);
   }
 
   _printChange(change) {
@@ -34,12 +33,12 @@ class Logger {
       this._log.log(
         '%c old ',
         'background: #ff6347; color: #fff',
-        change.oldValue
+        this._formatValue(change.oldValue)
       );
       this._log.log(
         '%c new ',
         'background: #5fba7d; color: #fff',
-        change.nextValue
+        this._formatValue(change.nextValue)
       );
       this._log.groupEnd();
     } else {
