@@ -4,17 +4,25 @@ class Logger {
     this._log = log;
   }
 
-  printInit() {
+  _getComponentLabel(id) {
+    const componentName = this._componentName;
+
+    if (!id) {
+      return componentName;
+    }
+
+    return componentName + ` [id: ${id}]`;
+  }
+
+  printInit(id) {
+    const componentLabel = this._getComponentLabel(id);
+
     this._log.log(
       '%c[clear-render] init for',
       'color: #848d95;',
-      this._componentName
+      componentLabel
     );
-    this._log.log(
-      '%c[clear-render] render',
-      'color: #848d95;',
-      this._componentName
-    );
+    this._log.log('%c[clear-render] render', 'color: #848d95;', componentLabel);
   }
 
   _printChange(change) {
@@ -39,11 +47,13 @@ class Logger {
     }
   }
 
-  printComparisonsResults(renderCount, propsChanges, stateChanges) {
+  printComparisonsResults(id, renderCount, propsChanges, stateChanges) {
+    const componentLabel = this._getComponentLabel(id);
+
     this._log.group(
       `%c[clear-render] re-render #${renderCount}`,
       'color: #848d95;',
-      this._componentName
+      componentLabel
     );
     this._printComparisonResult('props', propsChanges);
     this._printComparisonResult('state', stateChanges);
@@ -63,7 +73,6 @@ class Logger {
     changes.forEach(this._printChange.bind(this));
     this._log.groupEnd();
   }
-
 }
 
 export default Logger;

@@ -42,6 +42,8 @@ test('Checkbox, detect changed state', () => {
   expect(fakeLogger.printInit.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls[0]).toEqual([
+    null,
+    1,
     [],
     [{ key: 'isChecked', nextValue: true, oldValue: false, type: 'boolean' }],
   ]);
@@ -68,11 +70,81 @@ test('Checkbox, detect changed props', () => {
   expect(fakeLogger.printInit.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls[0]).toEqual([
+    null,
+    1,
     [{ key: 'title', type: 'string', oldValue: 'ping', nextValue: 'pong' }],
     [],
   ]);
 
   expect(getByTestId('props-title').textContent).toBe('pong');
+});
+
+test('Checkbox, should separate instances, detect changed props', () => {
+  // Arrange
+  const fakeLogger = {
+    printInit: jest.fn(),
+    printComparisonsResults: jest.fn(),
+  };
+  const comparator = new Comparator(fakeLogger);
+  const PatchedCheckbox = patch(Checkbox, comparator);
+
+  // Act
+  const { rerender } = render(
+    <React.Fragment>
+      <PatchedCheckbox {...defaultProps} key="1" clearRenderId="1" />
+      <PatchedCheckbox {...defaultProps} key="2" clearRenderId="2" />
+    </React.Fragment>
+  );
+
+  rerender(
+    <React.Fragment>
+      <PatchedCheckbox
+        {...defaultProps}
+        key="1"
+        title="pong"
+        clearRenderId="1"
+      />
+      <PatchedCheckbox
+        {...defaultProps}
+        key="2"
+        title="bong"
+        clearRenderId="2"
+      />
+    </React.Fragment>
+  );
+
+  // Assert
+  expect(fakeLogger.printInit.mock.calls.length).toBe(2);
+  expect(fakeLogger.printInit.mock.calls[0]).toEqual(['1']);
+  expect(fakeLogger.printInit.mock.calls[1]).toEqual(['2']);
+
+  expect(fakeLogger.printComparisonsResults.mock.calls.length).toBe(2);
+  expect(fakeLogger.printComparisonsResults.mock.calls[0]).toEqual([
+    '1',
+    1,
+    [
+      {
+        key: 'title',
+        type: 'string',
+        oldValue: 'ping',
+        nextValue: 'pong',
+      },
+    ],
+    [],
+  ]);
+  expect(fakeLogger.printComparisonsResults.mock.calls[1]).toEqual([
+    '2',
+    1,
+    [
+      {
+        key: 'title',
+        type: 'string',
+        oldValue: 'ping',
+        nextValue: 'bong',
+      },
+    ],
+    [],
+  ]);
 });
 
 test('Counter, detect changed props re-render', () => {
@@ -95,6 +167,8 @@ test('Counter, detect changed props re-render', () => {
   expect(fakeLogger.printInit.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls[0]).toEqual([
+    null,
+    1,
     [{ key: 'title', type: 'string', oldValue: 'ping', nextValue: 'pong' }],
     [],
   ]);
@@ -122,6 +196,72 @@ test('Counter, used hooks', () => {
   expect(fakeLogger.printComparisonsResults.mock.calls.length).toBe(1);
 });
 
+test('Counter, should separate instances, detect changed props', () => {
+  // Arrange
+  const fakeLogger = {
+    printInit: jest.fn(),
+    printComparisonsResults: jest.fn(),
+  };
+  const comparator = new Comparator(fakeLogger);
+  const PatchedCounter = patch(Counter, comparator);
+
+  // Act
+  const { rerender } = render(
+    <React.Fragment>
+      <PatchedCounter {...defaultProps} key="1" clearRenderId="1" />
+      <PatchedCounter {...defaultProps} key="2" clearRenderId="2" />
+    </React.Fragment>
+  );
+
+  rerender(
+    <React.Fragment>
+      <PatchedCounter
+        {...defaultProps}
+        key="1"
+        title="pong"
+        clearRenderId="1"
+      />
+      <PatchedCounter
+        {...defaultProps}
+        key="2"
+        title="bong"
+        clearRenderId="2"
+      />
+    </React.Fragment>
+  );
+
+  // Assert
+  expect(fakeLogger.printInit.mock.calls.length).toBe(2);
+  expect(fakeLogger.printComparisonsResults.mock.calls.length).toBe(2);
+
+  expect(fakeLogger.printComparisonsResults.mock.calls[0]).toEqual([
+    '1',
+    1,
+    [
+      {
+        key: 'title',
+        type: 'string',
+        oldValue: 'ping',
+        nextValue: 'pong',
+      },
+    ],
+    [],
+  ]);
+  expect(fakeLogger.printComparisonsResults.mock.calls[1]).toEqual([
+    '2',
+    1,
+    [
+      {
+        key: 'title',
+        type: 'string',
+        oldValue: 'ping',
+        nextValue: 'bong',
+      },
+    ],
+    [],
+  ]);
+});
+
 test('Input, detect changed props re-render', () => {
   // Arrange
   const fakeLogger = {
@@ -147,6 +287,8 @@ test('Input, detect changed props re-render', () => {
   expect(fakeLogger.printInit.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls.length).toBe(1);
   expect(fakeLogger.printComparisonsResults.mock.calls[0]).toEqual([
+    null,
+    1,
     [{ key: 'value', type: 'string', oldValue: '', nextValue: 'i type ...' }],
     [],
   ]);
