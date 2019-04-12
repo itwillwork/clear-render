@@ -45,17 +45,24 @@
       this._log = log;
     }
 
-    printInit() {
-      this._log.log(
-        '%c[clear-render] init for',
-        'color: #848d95;',
-        this._componentName
-      );
-      this._log.log(
-        '%c[clear-render] render',
-        'color: #848d95;',
-        this._componentName
-      );
+    _getComponentLabel(id) {
+      const componentName = this._componentName;
+
+      if (!id) {
+        return componentName;
+      }
+
+      return componentName + ` [id: ${id}]`;
+    }
+
+    printInit(id) {
+      const componentLabel = this._getComponentLabel(id);
+
+      this._log.log('%c[clear-render] render', 'color: #848d95;', componentLabel);
+    }
+
+    _formatValue(value) {
+      return JSON.stringify(value, null, 4);
     }
 
     _printChange(change) {
@@ -67,12 +74,12 @@
         this._log.log(
           '%c old ',
           'background: #ff6347; color: #fff',
-          change.oldValue
+          this._formatValue(change.oldValue)
         );
         this._log.log(
           '%c new ',
           'background: #5fba7d; color: #fff',
-          change.nextValue
+          this._formatValue(change.nextValue)
         );
         this._log.groupEnd();
       } else {
@@ -80,11 +87,13 @@
       }
     }
 
-    printComparisonsResults(renderCount, propsChanges, stateChanges) {
+    printComparisonsResults(id, renderCount, propsChanges, stateChanges) {
+      const componentLabel = this._getComponentLabel(id);
+
       this._log.group(
         `%c[clear-render] re-render #${renderCount}`,
         'color: #848d95;',
-        this._componentName
+        componentLabel
       );
       this._printComparisonResult('props', propsChanges);
       this._printComparisonResult('state', stateChanges);
@@ -104,33 +113,60 @@
       changes.forEach(this._printChange.bind(this));
       this._log.groupEnd();
     }
-
   }
 
   class Comparator {
     constructor(logger) {
-      this._renderCount = 0;
-
-      this._prevProps = null;
-      this._prevState = null;
-
       this._logger = logger;
+      this._instances = {};
+    }
+
+    _registration(id) {
+      this._instances[id] = {
+        id,
+        renderCount: 0,
+        prevProps: null,
+        prevState: null,
+      };
+    }
+
+    _saveCall(props, state) {
+      const id = this._getInstanceId(props);
+      const instance = this._getInstance(id);
+
+      instance.renderCount += 1;
+      instance.prevState = state;
+      instance.prevProps = props;
+    }
+
+    _getInstanceId(props) {
+      return props.clearRenderId || null;
+    }
+
+    _getInstance(id) {
+      return this._instances[id];
     }
 
     processChanges(nextProps, nextState) {
-      const isFirstRender = !this._renderCount;
-      if (isFirstRender) {
-        this._logger.printInit();
-      } else {
-        const propsChanges = this._shallowCompare(this._prevProps, nextProps);
-        const stateChanges = this._shallowCompare(this._prevState, nextState);
+      const id = this._getInstanceId(nextProps);
+      const instance = this._getInstance(id);
 
-        this._logger.printComparisonsResults(this._renderCount, propsChanges, stateChanges);
+      if (!instance) {
+        this._registration(id);
+        this._logger.printInit(id);
+      } else {
+        const propsChanges = this._shallowCompare(instance.prevProps, nextProps);
+        const stateChanges = this._shallowCompare(instance.prevState, nextState);
+
+        this._logger.printComparisonsResults(
+          id,
+          instance.renderCount,
+          propsChanges,
+          stateChanges
+        );
       }
 
-      this._renderCount += 1;
-      this._prevState = nextState;
-      this._prevProps = nextProps;
+      this._saveCall(nextProps, nextState);
     }
 
     _shallowCompare(oldObj = {}, nextObj = {}) {
