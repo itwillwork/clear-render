@@ -16,7 +16,7 @@ class Logger {
 
   printInit(id) {
     const componentLabel = this._getComponentLabel(id);
-    
+
     this._log.log('%c[clear-render] render', 'color: #848d95;', componentLabel);
   }
 
