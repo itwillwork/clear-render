@@ -18,8 +18,8 @@ Advantage over analogues: [welldone-software/why-did-you-render](https://github.
 
 <img width="564" alt="example" src="https://user-images.githubusercontent.com/15855766/47255109-5e687900-d474-11e8-86b1-38d732483959.png">
 
-## Sandbox
-You can test the library >> HERE << (notice the console).
+## Demo
+You can test the library [>> HERE <<](https://jsbin.com/fapeqav/3/edit?js,output) (click button and notice the console).
 
 ## Usage 
 Wrap the component for which you want to watch. :checkered_flag:
