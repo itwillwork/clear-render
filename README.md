@@ -16,7 +16,7 @@ To answer the question. **Why did the rendering happen?** :eyes:
 
 Advantage over analogues: [welldone-software/why-did-you-render](https://github.com/welldone-software/why-did-you-render), [maicki/why-did-you-update](https://github.com/maicki/why-did-you-update) and [garbles/why-did-you-update](https://github.com/garbles/why-did-you-update), is a function that monkey patches React (it is works very very slow for large project) and not support React hooks.
 
-<img width="564" alt="example" src="https://user-images.githubusercontent.com/15855766/47255109-5e687900-d474-11e8-86b1-38d732483959.png">
+<img alt="example" src="https://github.com/itwillwork/clear-render/blob/master/media/demo.png?raw=true">
 
 ## Demo
 You can test the library [>> HERE <<](https://jsbin.com/fapeqav/3/edit?js,output) (click button and notice the console).
